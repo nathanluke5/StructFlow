@@ -1,0 +1,47 @@
+"code" :
+{
+}
+"code_reference": "AS1170.4"
+"name": "Australian Wind Loading"
+"code_items" : { 
+
+"tables" : 
+[
+	"code" : "AS1170.4"
+	"table_name" : "Regional Wind Speeds"
+	"variables" : [	{"name" : "Vr", "variable" : "Vr", "variable_type": "double"}
+					{"name": "Fc", "variable": "Fc", "variable_type": "double" }
+					{"name": "Fd", "variable": "Fd", "variable_type": "double" }
+					{"name": "R", "variable": "R", "variable_type": "double" }
+					{"name": "Region", "variable": "Region", "variable_type": "string" }] //need to add limitations
+	
+	"table_header" : [	{ "name": "Regional wind speed (m/s)", "variable_reference" : "Vr"}
+						{ "name": "A(1 to 7)", "variable_reference" : "Region", "applicablevalues" : "A1,A2,A3,A4,A5,A6,A7"}
+						{ "name": "W", "variable_reference" : "Region", "applicablevalues" : "W"}
+						{ "name": "B", "variable_reference" : "Region", "applicablevalues" : "B"}
+						{ "name": "C", "variable_reference" : "Region", "applicablevalues" : "C"}
+						{ "name": "D", "variable_reference" : "Region", "applicablevalues" : "D"}
+						
+	"table_body" : 	[ 	{ "data" : ["5" ,"10" ,"20" ,"50" ,"100" ,"200" ,"500" ,"1000" ,"2000", "Vr"] } 
+						{ "data" : ["32" ,"34" ,"37" ,"39" ,"41" ,"43" ,"45" ,"46" ,"48", 67-41*R^-0.1] }
+						{ "data" : ["39" ,"41" ,"43" ,"45" ,"47" ,"49" ,"51" ,"53" ,"54", 104-70*R^-0.045] }
+						{ "data" : ["28" ,"33" ,"38" ,"44" ,"48" ,"52" ,"57" ,"60" ,"63", 106-92*R^-0.01] }
+						{ "data" : ["Fc*33" ,"Fc*39" ,"Fc*45" ,"Fc*52" ,"Fc*56" ,"Fc*61" ,"Fc*66" ,"Fc*70" ,"Fc*73", Fc*(122-104*R^-0.1)] }
+						{ "data" : ["Fd*35", "Fd*43, "Fd*51", "Fd*60", "Fd*66", "Fd*72", "Fd*80", "Fd*85", "Fd*90", , Fd*(156-142*R^-0.1)]}]
+
+
+
+
+] 
+
+
+
+"formulas" : []
+}
+
+
+
+formula : []
+{
+
+}

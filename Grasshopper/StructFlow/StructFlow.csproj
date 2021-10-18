@@ -14,6 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug32|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,55 +45,66 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Eto, Version=2.5.0.0, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.6.14.19118.15561\lib\net45\Eto.dll</HintPath>
+    </Reference>
+    <Reference Include="GH_IO, Version=6.14.19118.15560, Culture=neutral, PublicKeyToken=6a29997d2e6b4f97, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grasshopper.6.14.19118.15561\lib\net45\GH_IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Grasshopper, Version=6.14.19118.15560, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grasshopper.6.14.19118.15561\lib\net45\Grasshopper.dll</HintPath>
+    </Reference>
+    <Reference Include="MathParser.org-mXparser, Version=4.4.2.0, Culture=neutral, PublicKeyToken=0fbab7add73ed6e2, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathParser.org-mXparser.4.4.2\lib\net45\MathParser.org-mXparser.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.UI, Version=6.14.19118.15560, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.6.14.19118.15561\lib\net45\Rhino.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="RhinoCommon, Version=6.14.19118.15560, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.6.14.19118.15561\lib\net45\RhinoCommon.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="RhinoCommon">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>c:\Program Files (x86)\Rhinoceros 5\System\rhinocommon.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Grasshopper">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files\Common Files\McNeel\Rhinoceros\5.0\Plug-ins\Grasshopper (b45a29b1-4343-4035-989e-044e8580d9cf)\0.9.76.0\Grasshopper.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="GH_IO">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files\Common Files\McNeel\Rhinoceros\5.0\Plug-ins\Grasshopper (b45a29b1-4343-4035-989e-044e8580d9cf)\0.9.76.0\GH_IO.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\1.0 Model Wizards\SFTrussFromPoints.cs" />
-    <Compile Include="Components\1.0 Model Wizards\SFTrussFromCurves.cs" />
-    <Compile Include="Components\1.0 Model Wizards\SFGrid.cs" />
-    <Compile Include="Components\4.0 Model Utilities\SFLinesFromPoints.cs" />
-    <Compile Include="Components\4.0 Model Utilities\SFMemberSplit.cs" />
-    <Compile Include="Components\7.0 Misc\Class1.cs" />
-    <Compile Include="Core\Utils.cs" />
-    <Compile Include="Core\Intersection.cs" />
-    <Compile Include="Core\Grid.cs" />
-    <Compile Include="Core\ModelUtilities.cs" />
-    <Compile Include="Core\ListUtilities.cs" />
-    <Compile Include="Core\TreeUtilities.cs" />
-    <Compile Include="Miscilaneuos\ZipTools.cs" />
-    <Compile Include="Miscilaneuos\Optimise.cs" />
+    <Compile Include="Components\1_Model.cs" />
+    <Compile Include="Components\2_Structure.cs" />
+    <Compile Include="Components\6_Optimise.cs" />
+    <Compile Include="Components\7_Misc.cs" />
+    <Compile Include="Components\5_Document.cs" />
+    <Compile Include="Components\4_Utilities.cs" />
+    <Compile Include="Core\Model Generic\Points.cs" />
+    <Compile Include="Core\Model Struct\PortalFrame.cs" />
+    <Compile Include="Core\Model Struct\Truss2D.cs" />
+    <Compile Include="Core\Utils Generic\Tables.cs" />
+    <Compile Include="Core\Utils Generic\PlaneUtils.cs" />
+    <Compile Include="Core\Utils Generic\CurveUtils.cs" />
+    <Compile Include="Core\Utils Generic\StringUtils.cs" />
+    <Compile Include="Core\Utils Generic\NumberUtils.cs" />
+    <Compile Include="Core\Utils Generic\TreeUtils.cs" />
+    <Compile Include="Core\Utils Generic\PointUtils.cs" />
+    <Compile Include="Core\Utils Generic\IntersectionUtils.cs" />
+    <Compile Include="Core\Model Struct\Grid.cs" />
+    <Compile Include="Core\Utils Generic\ListUtis.cs" />
+    <Compile Include="Core\Utils Struct\BoltedConnectionUtils.cs" />
+    <None Include="Core\Utils Struct\WindLoadings.cs" />
+    <Compile Include="Core\Utils Struct\SectionPropertyCalculator.cs" />
+    <Compile Include="Core\Utils Struct\WeldedConnectionUtils.cs" />
+    <Compile Include="Grasshopper\Rhino.cs" />
+    <Compile Include="Grasshopper\GHTypes.cs" />
+    <Compile Include="Core\Miscilaneuos\GeometryTable.cs" />
+    <Compile Include="Core\Miscilaneuos\ZipTools.cs" />
+    <Compile Include="Core\Optimise\Optimise.cs" />
     <Compile Include="StructFlowInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Truss\ChordDefinition.cs" />
-    <Compile Include="Truss\Verticals.cs" />
-    <Compile Include="Truss\Webs.cs" />
-    <Compile Include="Truss\Truss.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Components\2.0 Model Point-Line\" />
-    <Folder Include="Components\3.0 Model Surface\" />
-    <Folder Include="Components\5.0 Document\" />
-    <Folder Include="Components\6.0 Optimise\" />
-    <Folder Include="PortalFrame\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -122,4 +135,13 @@ Erase "$(TargetPath)"</PostBuildEvent>
     <StartAction>Program</StartAction>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <Import Project="..\packages\RhinoCommon.6.14.19118.15561\build\net45\RhinoCommon.targets" Condition="Exists('..\packages\RhinoCommon.6.14.19118.15561\build\net45\RhinoCommon.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\RhinoCommon.6.14.19118.15561\build\net45\RhinoCommon.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\RhinoCommon.6.14.19118.15561\build\net45\RhinoCommon.targets'))" />
+    <Error Condition="!Exists('..\packages\Grasshopper.6.14.19118.15561\build\net45\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grasshopper.6.14.19118.15561\build\net45\Grasshopper.targets'))" />
+  </Target>
+  <Import Project="..\packages\Grasshopper.6.14.19118.15561\build\net45\Grasshopper.targets" Condition="Exists('..\packages\Grasshopper.6.14.19118.15561\build\net45\Grasshopper.targets')" />
 </Project>
